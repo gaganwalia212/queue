@@ -108,6 +108,8 @@ int main()
     cout<<q.deque()<<endl;
     cout<<q.deque()<<endl;
     cout<<q.deque()<<endl;
+    //*************************************************************************************//
+    //Now if you see queue will be empty and full at the same time...this is the disadvantage:
     cout<<"Queue is empty-"<<boolalpha<<q.is_empty()<<endl;
     cout<<"Queue is full-"<<boolalpha<<q.is_full()<<endl;
     return 0;
