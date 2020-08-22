@@ -2,18 +2,18 @@
 
 using namespace std;
 
-//General class for queue:
+//General class for circular queue:
 template<typename T>
 class Queue
 {
     int size;
     T*Q;
-    int f{0},r{0};//index pointers..f-front....r-rear/back
+    int f{0},r{0};//index pointers..f-front....r-rear/back....rememeber they must be initialized to 0 not -1..else there will be a problem in display function
 public:
     Queue(int x=0);
     ~Queue();
     void enqueue(T);
-    T deque();
+    T dequeue();
     bool is_empty();
     bool is_full();
     void display();
@@ -48,7 +48,7 @@ void Queue<T>::enqueue(T x)
 }
 
 template<typename T>
-T Queue<T>:: deque()
+T Queue<T>:: dequeue()
 {
     if(f==r)
         {
@@ -91,6 +91,7 @@ void Queue<T>:: display()
 
 int main()
 {
+    //try tracing the following
     Queue<int>q(5);
     cout<<"Queue is empty-"<<boolalpha<<q.is_empty()<<endl;
     cout<<"Queue is full-"<<boolalpha<<q.is_full()<<endl;
@@ -102,19 +103,19 @@ int main()
     q.display();
     cout<<"Queue is empty-"<<boolalpha<<q.is_empty()<<endl;
     cout<<"Queue is full-"<<boolalpha<<q.is_full()<<endl;
-    q.deque();
-    q.deque();
+    q.dequeue();
+    q.dequeue();
     q.display();
     q.enqueue(10);
     q.enqueue(28);
     q.display();
     cout<<"Queue is empty-"<<boolalpha<<q.is_empty()<<endl;
     cout<<"Queue is full-"<<boolalpha<<q.is_full()<<endl;
-    q.deque();
-    q.deque();
-    q.deque();
-    q.deque();
-    q.deque();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
     cout<<"Queue is empty-"<<boolalpha<<q.is_empty()<<endl;
     cout<<"Queue is full-"<<boolalpha<<q.is_full()<<endl;
     q.enqueue(10);
@@ -123,9 +124,9 @@ int main()
     q.display();
     cout<<"Queue is empty-"<<boolalpha<<q.is_empty()<<endl;
     cout<<"Queue is full-"<<boolalpha<<q.is_full()<<endl;
-    q.deque();
-    q.deque();
-    q.deque();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
     q.display();
     cout<<"Queue is empty-"<<boolalpha<<q.is_empty()<<endl;
     cout<<"Queue is full-"<<boolalpha<<q.is_full()<<endl;
